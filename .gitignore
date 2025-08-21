@@ -84,3 +84,10 @@ Temporary Items
 
 # Ignore positions file (#3518)
 js/positions.js
+
+
+tools/  # Ignore the tools directory, but keep the README file.
+node_modules/
+.env
+tools/
+.DS_Store

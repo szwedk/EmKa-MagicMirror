@@ -239,3 +239,117 @@ sup {
   border-spacing: 0;
   border-collapse: separate;
 }
+.horizontal-forecast {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 10px;
+  padding: 0 10px;
+}
+
+.forecast-card {
+  flex: 1;
+  min-width: 80px;
+  text-align: center;
+  padding: 6px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.forecast-card .day-label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.forecast-card .icon {
+  font-size: 2em;
+  margin: 5px 0;
+}
+
+.forecast-card .temp {
+  font-size: 1em;
+  margin: 4px 0;
+}
+
+.forecast-card .temp .high {
+  color: #fff;
+  font-weight: 500;
+}
+
+.forecast-card .temp .low {
+  color: #aaa;
+  margin-left: 4px;
+}
+
+.forecast-card .precip,
+.forecast-card .precip-prob,
+.forecast-card .uv-index {
+  font-size: 0.8em;
+  color: #ccc;
+}
+
+.sun-times {
+  font-size: 1rem;
+  margin-top: 8px;
+  line-height: 1.6em;
+}
+
+.sun-times .wi {
+  font-size: 1.2em;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.sun-times-row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 6px;
+  gap: 20px;
+}
+
+.sun-times-row .sun-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1rem;
+}
+
+
+
+
+.region.bottom.center .newsfeed {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 10px;
+}
+
+.newsfeed .newsfeed-item {
+  width: 300px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-left: 3px solid #888;
+}
+
+.newsfeed .newsfeed-source {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.newsfeed .newsfeed-title {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.newsfeed .newsfeed-date {
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 4px;
+}

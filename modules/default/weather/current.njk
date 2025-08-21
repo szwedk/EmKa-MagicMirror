@@ -3,6 +3,7 @@
         <span class="humidity"><span>{{ current.humidity | decimalSymbol }}</span><sup>&nbsp;<i class="wi wi-humidity humidity-icon"></i></sup></span>
     {% endif %}
 {% endmacro %}
+
 {% if current %}
     {% if not config.onlyTemp %}
         <div class="normal medium">
@@ -23,16 +24,6 @@
             {% if config.showHumidity === "wind" %}
                 {{ humidity() }}
             {% endif %}
-            {% if config.showSun %}
-                <span class="wi dimmed wi-{{ current.nextSunAction() }}"></span>
-                <span>
-                    {% if current.nextSunAction() === "sunset" %}
-                        {{ current.sunset | formatTime }}
-                    {% else %}
-                        {{ current.sunrise | formatTime }}
-                    {% endif %}
-                </span>
-            {% endif %}
             {% if config.showUVIndex %}
                 <td class="align-right bright uv-index">
                     <div class="wi dimmed wi-hot"></div>
@@ -41,32 +32,31 @@
             {% endif %}
         </div>
     {% endif %}
+
     <div class="large">
         {% if config.showIndoorTemperature and indoor.temperature or config.showIndoorHumidity and indoor.humidity %}
             <span class="medium fas fa-home"></span>
             <span style="display: inline-block">
-                    {% if config.showIndoorTemperature and indoor.temperature %}
-                            <sup class="small" style="position: relative; display: block; text-align: left;">
-                                    <span>
-                                        {{ indoor.temperature | roundValue | unit("temperature") | decimalSymbol }}
-                                    </span>
-                            </sup>
-                    {% endif %}
-                    {% if config.showIndoorHumidity and indoor.humidity %}
-                            <sub class="small" style="position: relative; display: block; text-align: left;">
-                                    <span>
-                                            {{ indoor.humidity | roundValue | unit("humidity") | decimalSymbol }}
-                                    </span>
-                            </sub>
-                    {% endif %}
+                {% if config.showIndoorTemperature and indoor.temperature %}
+                    <sup class="small" style="position: relative; display: block; text-align: left;">
+                        <span>{{ indoor.temperature | roundValue | unit("temperature") | decimalSymbol }}</span>
+                    </sup>
+                {% endif %}
+                {% if config.showIndoorHumidity and indoor.humidity %}
+                    <sub class="small" style="position: relative; display: block; text-align: left;">
+                        <span>{{ indoor.humidity | roundValue | unit("humidity") | decimalSymbol }}</span>
+                    </sub>
+                {% endif %}
             </span>
         {% endif %}
         <span class="light wi weathericon wi-{{ current.weatherType }}"></span>
         <span class="light bright">{{ current.temperature | roundValue | unit("temperature") | decimalSymbol }}</span>
+
         {% if config.showHumidity === "temp" %}
             <span class="medium bright">{{ humidity() }}</span>
         {% endif %}
     </div>
+
     {% if (config.showFeelsLike or config.showPrecipitationAmount or config.showPrecipitationProbability) and not config.onlyTemp %}
         <div class="normal medium feelslike">
             {% if config.showFeelsLike %}
@@ -89,13 +79,25 @@
                     <span class="precipitationLeadText">{{ "PRECIP_POP" | translate }}</span> {{ current.precipitationProbability }}%
                 </span>
             {% endif %}
+
+            {% if config.showSun %}
+                <div class="sun-times-row">
+                    <div class="sun-item">
+                        <span class="wi wi-sunrise dimmed"></span>
+                        <span>{{ current.sunrise | formatTime }}</span>
+                    </div>
+                    <div class="sun-item">
+                        <span class="wi wi-sunset dimmed"></span>
+                        <span>{{ current.sunset | formatTime }}</span>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     {% endif %}
+
     {% if config.showHumidity === "below" %}
         <span class="medium dimmed">{{ humidity() }}</span>
     {% endif %}
 {% else %}
     <div class="dimmed light small">{{ "LOADING" | translate }}</div>
 {% endif %}
-<!-- Uncomment the line below to see the contents of the `current` object. -->
-<!-- <div style="word-wrap:break-word" class="xsmall dimmed">{{current | dump}}</div> -->

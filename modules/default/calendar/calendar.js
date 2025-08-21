@@ -42,7 +42,7 @@ Module.register("calendar", {
 		calendars: [
 			{
 				symbol: "calendar-alt",
-				url: "https://www.calendarlabs.com/templates/ical/US-Holidays.ics"
+				url: "webcal://p24-caldav.icloud.com/published/2/MzM5Nzk3NTUwMzM5Nzk3NRVaTzB0yo_aIynRfpd7WG_iOMzf-LxZiXiKI-uPMmTSf8X_NMhA4-G9ceWt6sGTMwC09BB_H6bxrduzSi0qLcw"
 			}
 		],
 		customEvents: [

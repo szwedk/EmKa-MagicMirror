@@ -3,7 +3,7 @@
 Module.register("weather", {
 	// Default module config.
 	defaults: {
-		weatherProvider: "openweathermap",
+		weatherProvider: "openmeteo",
 		roundTemp: false,
 		type: "current", // current, forecast, daily (equivalent to forecast), hourly (only with OpenWeatherMap /onecall endpoint)
 		lang: config.language,
@@ -37,9 +37,9 @@ Module.register("weather", {
 		initialLoadDelay: 0, // 0 seconds delay
 		appendLocationNameToHeader: true,
 		calendarClass: "calendar",
-		tableClass: "small",
+		tableClass: "medium",
 		onlyTemp: false,
-		colored: false,
+		colored: true,
 		absoluteDates: false,
 		hourlyForecastIncrements: 1
 	},
