@@ -353,3 +353,11 @@ sup {
   color: #999;
   margin-top: 4px;
 }
+
+
+
+.module.calendar {
+  transform: scale(0.75);
+  transform-origin: top center;
+}
+
